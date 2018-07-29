@@ -60,9 +60,10 @@
 ### download_image.py
 
 ## 7. 実行手順
-#### 1. コードをダウンロード
+#### 1. git clone
 ```
-$ git clone https://github.com/Doarakko/excite-image-scraping
+$ git clone https://github.com/Doarakko/scraping-challenge
+$ cd excite-image-scraping
 ```
 #### 2. keywords.txt に検索するキーワードを入力
 ##### 検索するキーワード,保存するファイル名（ファイル名指定なしVer作成中）
