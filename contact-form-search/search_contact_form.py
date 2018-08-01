@@ -23,7 +23,7 @@ def search_form(top_url):
         resources = response.read()
         html = BeautifulSoup(resources, 'html.parser')
         for a_tag in html.find_all('a'):
-            li = [a_tag.string, a_tag.get('alt'), a_tag.get('title')]
+            li = [a_tag.string, a_tag.get('alt'), a_tag.get('href'), a_tag.get('title')]
             for s in li:
                 if s is not None and any(key in s for key in FORM_KEYWORDS):
                     form_url = a_tag.get('href')
