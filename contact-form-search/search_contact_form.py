@@ -23,12 +23,13 @@ def search_form(top_url):
         resources = response.read()
         html = BeautifulSoup(resources, 'html.parser')
         for a_tag in html.find_all('a'):
-            s = a_tag.string
-            if s is not None and any(key in s for key in FORM_KEYWORDS):
-                form_url = a_tag.get('href')
-                form_url = edit_url(top_url, form_url)
-                print('[Find] {}'.format(form_url))
-                return form_url
+            li = [a_tag.string, a_tag.get('alt'), a_tag.get('title')]
+            for s in li:
+                if s is not None and any(key in s for key in FORM_KEYWORDS):
+                    form_url = a_tag.get('href')
+                    form_url = edit_url(top_url, form_url)
+                    print('[Find] {}'.format(form_url))
+                    return form_url
         print('Can not find form...'.format())
     except Exception as e:
         print('[Error] {}'.format(e))
