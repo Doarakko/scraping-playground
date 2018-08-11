@@ -7,6 +7,7 @@ SAVE_PATH = './data/form_url.txt'
 FORM_KEYWORDS = ['問い合わ', '問い合せ', 'contact', 'Contact', 'inquiry', 'Inquiry']
 QA_KEYWORDS = ['QA', 'qa', 'aq', 'AQ', 'フォーム', 'form', 'ヘルプ', 'help', ]
 
+
 def load_file():
     url_list = []
     with open(LOAD_PATH) as f:
@@ -15,6 +16,7 @@ def load_file():
             url_list.append(url)
     print('[Load] {}'.format(LOAD_PATH))
     return url_list
+
 
 # TOPページのURLから問い合わせフォームのURLを取得
 def search_form(top_url):
@@ -35,6 +37,7 @@ def search_form(top_url):
         print('[Error] {}'.format(e))
     return -1
 
+
 # URLに 'http' が含まれていない場合, TOPページのURLに連結
 def edit_url(top_url, url):
     if url.find('http') == -1:
@@ -43,6 +46,7 @@ def edit_url(top_url, url):
         else:
             url = top_url + url
     return url
+
 
 if __name__ == '__main__':
     top_url_list = load_file()
