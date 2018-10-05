@@ -7,6 +7,7 @@ from urllib.request import urlopen, urlretrieve, quote
 
 N = 60
 
+
 # 画像のURLを取得する関数
 def get_image_url_list(query):
     endpoint = 'https://imagesearch.excite.co.jp/'
@@ -26,20 +27,19 @@ def get_image_url_list(query):
     # 画像のURLのリストを返す
     return url_list
 
-#画像をダウンロードする関数
+
+# 画像をダウンロードする関数
 def download_image(img_url_list, query, save_name):
-    #画像を保存するディレクトリを指定
+    # 画像を保存するディレクトリを指定
     save_dir = './image/' + save_name
-    #画像を保存するディレクトリを作成
+    # 画像を保存するディレクトリを作成
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-    #デバック
     print('keyword = \'{}\', N = {}'.format(query, N))
-    #初期化
     id = 1
-    #ダウンロード成功した回数
+    # ダウンロード成功した回数
     success_cnt = 0
-    #ダウンロード失敗した回数
+    # ダウンロード失敗した回数
     error_cnt = 0
     # ダウンロード失敗した画像のURLを入れるリストを準備
     error_url_list = []
@@ -47,19 +47,19 @@ def download_image(img_url_list, query, save_name):
         try:
             num = '{0:04d}'.format(id)
             save_path = '{}/{}.jpg'.format(save_dir, save_name + str(num))
-            #写真をダウンロード
+            # 写真をダウンロード
             urlretrieve(img_url, save_path)
             success_cnt += 1
-            # 1秒スリープ
             time.sleep(1)
-            #デバック
+
             print('[Download] {} {}/{}'.format(query, id, N))
         except Exception as e:
             error_url_list.append(img_url)
             error_cnt += 1
-            #デバック
+
             print('[Error] {} {}/{} {}'.format(query, id, N, img_url))
         id += 1
+
     print('[Result] {} success:{}/{}'.format(query, success_cnt - error_cnt, success_cnt + error_cnt))
     if N != success_cnt + error_cnt:
         print('[Warning] URL Is Insufficient.')
@@ -68,13 +68,12 @@ def download_image(img_url_list, query, save_name):
         print('[Failed URL] {}'.format(error_url))
     print('')
 
-#テキストファイルから検索するクエリ, 保存する画像のファイル名を取得する関数
+
+# テキストファイルから検索するクエリ, 保存する画像のファイル名を取得する関数
 def get_keywords(path='./data/keywords.txt'):
-    #読み込むテキストファイル
     with open(path) as f:
         keywords = []
         for line in f:
-            # 改行を削除, カンマで区切る
             keyword = line.strip().split(',')
             keywords.append(keyword)
     return keywords
@@ -87,5 +86,5 @@ if __name__ == '__main__':
     for keyword in keywords:
         # 画像のURLを取得
         img_url_list = get_image_url_list(keyword[0])
-        #画像をダウンロード
+        # 画像をダウンロード
         download_image(img_url_list, keyword[0], keyword[1])
