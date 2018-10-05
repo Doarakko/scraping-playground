@@ -32,14 +32,14 @@ def get_today_event():
 
 
 def is_meal_event(event_url):
-    meal_word = ['懇親会']
+    meal_words = ['懇親会']
 
     response = urlopen(event_url)
     resources = response.read()
     html = BeautifulSoup(resources, 'html.parser')
     if html.find('懇親会') != 0:
-        print('meal event')
+        return True
     else:
-        print('not meal event')
+        return False
 
 get_today_event()
