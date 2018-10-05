@@ -3,14 +3,14 @@
 「エキサイト 画像検索」から画像のスクレイピングを行います.
 
 ## 目次
-#### 1. はじめに
-#### 2. エキサイト・サービス利用規約（抜粋）
-#### 3. 著作権法（抜粋）
-#### 4. 実行環境
-#### 5. ディレクトリ構成
-#### 6. プログラム
-#### 7. 実行手順
-#### 8. おわりに
+1. はじめに
+2. エキサイト・サービス利用規約（抜粋）
+3. 著作権法（抜粋）
+4. 実行環境
+5. ディレクトリ構成
+6. プログラム
+7. 実行手順
+8. おわりに
 
 ## 1. はじめに
 情報解析を目的として「エキサイト 画像検索」から画像のスクレイピングを行います.
@@ -54,7 +54,7 @@ download_image.py
 ## 7. 実行手順
 1. git clone
 ```
-$ git clone https://github.com/Doarakko/scraping-challenge
+$ git clone https://github.com/Doarakko/scraping
 $ cd excite-image-scraping
 ```
 2. keywords.txt に検索するキーワードを入力
@@ -62,12 +62,10 @@ $ cd excite-image-scraping
 りんご,apple
 オレンジ,orange
 ```
-
 3. ダウンロードする画像の枚数を入力
 ```python:download_image.py
 N = 60
 ```
-
 4. スクレイピング
 ```
 $ python download_image.py
