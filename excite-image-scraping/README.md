@@ -1,21 +1,12 @@
 # excite-image-scraping
-## 概要
+## Overview
 「エキサイト 画像検索」から画像のスクレイピングを行います.
 
-## 目次
-1. はじめに
-2. エキサイト・サービス利用規約（抜粋）
-3. 著作権法（抜粋）
-4. 実行環境
-5. ディレクトリ構成
-6. プログラム
-7. 実行手順
-8. おわりに
 
-## 1. はじめに
+## Description
 情報解析を目的として「エキサイト 画像検索」から画像のスクレイピングを行います.
 
-## 2. エキサイト・サービス利用規約 （抜粋）
+### エキサイト・サービス利用規約 （抜粋）
 > 第４章　ユーザーの責務
 >> 18条（禁止事項）
 >>> １．当社は、ユーザーに以下の各号の何れかに該当する事由が生じた場合、ユーザーに対して事前に通知することなく本サービスの利用を停止もしくは登録情報を削除し、又は提供している本サービスを差止め、以後本サービスの利用をお断りすることがあります。なお、停止期間又は一時停止期間も、利用期間に含まれるものとします。
@@ -25,7 +16,7 @@
 
 出典：[Excite エキサイト](https://info.excite.co.jp/top/agreement.html)（2018/04/22）
 
-## 3. 著作権法（抜粋）
+### 著作権法（抜粋）
 > 第二章　著作者の権利
 >> 第三節　権利の内容
 >>> 第五款　著作権の制限
@@ -35,11 +26,18 @@
 
 出典：[電子政府の総合窓口e-Gov イーガブ](http://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=345AC0000000048&openerCode=1)（2018/04/22）
 
-## 4. 実行環境
+
+## Requirement
 ・mac os 10.13.3  
 ・anaconda3-5.1.0
 
-## 5. ディレクリ構成
+
+## Usage
+1. git clone
+```
+$ git clone https://github.com/Doarakko/scraping
+$ cd excite-image-scraping
+```
 ```
 ./
 ├── data
@@ -48,15 +46,6 @@
 └── image
 ```
 
-## 6. プログラム
-download_image.py
-
-## 7. 実行手順
-1. git clone
-```
-$ git clone https://github.com/Doarakko/scraping
-$ cd excite-image-scraping
-```
 2. keywords.txt に検索するキーワードを入力
 ```txt:keywords.txt
 りんご,apple
@@ -113,6 +102,3 @@ $ python download_image.py
     ├── orange0018.jpg
     └── orange0020.jpg
 ```
-
-## 8. おわりに
-yeah!
