@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
 import time
@@ -14,7 +13,7 @@ def get_image_url_list(query):
     # 画像のURLを入れるリストを準備
     url_list = []
     for page in range(1, int(N / 20) + 1):
-        request = '{0}?q={1}&page={2}'.format(endpoint, quote(query.encode('utf-8')), page)
+        request = '{}?q={}&page={}'.format(endpoint, quote(query.encode('utf-8')), page)
         response = urlopen(request)
         resources = response.read()
         html = BeautifulSoup(resources, 'html.parser')

@@ -102,3 +102,6 @@ $ python download_image.py
     ├── orange0018.jpg
     └── orange0020.jpg
 ```
+
+## Hint
+・[「エキサイト 画像検索」から画像をスクレイピング in Python](https://qiita.com/Doarakko/items/a60437507f3a958b7226)

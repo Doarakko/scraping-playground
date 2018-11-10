@@ -25,7 +25,6 @@ def get_today_event():
     for event in resources['events']:
         # hh:mm
         event_end_time = re.search(r'\d\d\d\d-\d\d-\d\dT(\d\d:\d\d):00\+09:00', event['ended_at']).group(1)
-
         if event['address'][:len(PREFECTURE)] == PREFECTURE and event_end_time > cur_date.strftime('%H:%M') and event['accepted'] < event['limit']:
             event_url = event['event_url']
             is_meal_event(event_url)
