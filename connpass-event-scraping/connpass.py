@@ -10,16 +10,17 @@ from bs4 import BeautifulSoup
 
 
 PREFECTURE = '東京都'
+URL = 'https://connpass.com/api/v1/event/'
 
 
 def get_today_event():
     cur_date = datetime.datetime.today()
-    url = 'https://connpass.com/api/v1/event/'
+
     params = {
         # yyyymmdd
         'ymd': cur_date.strftime('%Y%m%d')
     }
-    response = requests.get(url, params=params)
+    response = requests.get(URL, params=params)
     resources = response.json()
 
     for event in resources['events']:
@@ -41,4 +42,28 @@ def is_meal_event(event_url):
     else:
         return False
 
-get_today_event()
+
+def get_event(keyword, count=10):
+    """
+    イベント情報を取得する
+
+    Parameters
+    ----------
+    keyword : string
+        検索するキーワード
+    count : int, default 10
+        取得するイベント数
+    """
+
+    params = {
+        'keyword': keyword,
+        'count': count,
+    }
+    response = requests.get(URL, params=params)
+    resources = response.json()
+    
+    for event in resources['events']:
+        print(event['event_url'])
+
+
+get_event('python', 20)

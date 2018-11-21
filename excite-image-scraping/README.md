@@ -2,7 +2,6 @@
 ## Overview
 「エキサイト 画像検索」から画像のスクレイピングを行います.
 
-
 ## Description
 情報解析を目的として「エキサイト 画像検索」から画像のスクレイピングを行います.
 
@@ -28,8 +27,8 @@
 
 
 ## Requirement
-・mac os 10.13.3  
-・anaconda3-5.1.0
+- mac os 10.13.3  
+- anaconda3-5.1.0
 
 
 ## Usage
@@ -104,4 +103,4 @@ $ python download_image.py
 ```
 
 ## Hint
-・[「エキサイト 画像検索」から画像をスクレイピング in Python](https://qiita.com/Doarakko/items/a60437507f3a958b7226)
+- [「エキサイト 画像検索」から画像をスクレイピング in Python](https://qiita.com/Doarakko/items/a60437507f3a958b7226)
