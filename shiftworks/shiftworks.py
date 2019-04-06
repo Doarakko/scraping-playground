@@ -19,7 +19,8 @@ def get_industry(occupation_url):
 # URLから職種を取得する関数
 def get_occupation(occupation_url):
     # 職種
-    occupation = re.search(r'http://sftworks.jp/list/mjob_.+/(.+)', occupation_url)
+    occupation = re.search(
+        r'http://sftworks.jp/list/mjob_.+/(.+)', occupation_url)
     occupation = occupation.group(1)
     return occupation
 
@@ -161,7 +162,8 @@ def download_image(img_url_list, save_dir):
             # ダウンロード済みの画像の場合
             else:
                 print("[Warning] This image has already been downloaded.")
-        print("[Result] success:{0}/{1}".format(success_cnt, success_cnt+error_cnt))
+        print(
+            "[Result] success:{0}/{1}".format(success_cnt, success_cnt+error_cnt))
         # ダウンロード失敗した画像のURL
         for error_url in error_url_list:
             print("[Failed URL] {0}".format(error_url))

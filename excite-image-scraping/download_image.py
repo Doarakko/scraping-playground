@@ -13,7 +13,8 @@ def get_image_url_list(query):
     # 画像のURLを入れるリストを準備
     url_list = []
     for page in range(1, int(N / 20) + 1):
-        request = '{}?q={}&page={}'.format(endpoint, quote(query.encode('utf-8')), page)
+        request = '{}?q={}&page={}'.format(
+            endpoint, quote(query.encode('utf-8')), page)
         response = urlopen(request)
         resources = response.read()
         html = BeautifulSoup(resources, 'html.parser')
@@ -59,7 +60,8 @@ def download_image(img_url_list, query, save_name):
             print('[Error] {} {}/{} {}'.format(query, id, N, img_url))
         id += 1
 
-    print('[Result] {} success:{}/{}'.format(query, success_cnt - error_cnt, success_cnt + error_cnt))
+    print('[Result] {} success:{}/{}'.format(query,
+                                             success_cnt - error_cnt, success_cnt + error_cnt))
     if N != success_cnt + error_cnt:
         print('[Warning] URL Is Insufficient.')
     # ダウンロード失敗した画像のURL
@@ -76,6 +78,7 @@ def get_keywords(path='./data/keywords.txt'):
             keyword = line.strip().split(',')
             keywords.append(keyword)
     return keywords
+
 
 if __name__ == '__main__':
     if N % 20 != 0:
